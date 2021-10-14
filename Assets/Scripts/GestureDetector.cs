@@ -7,8 +7,14 @@ using System;
 public enum GestureType
 {
     RightHandIndexPoint,
-    RightHandThumbsUp,
-    RightHandStop,
+    ThumbsUpR,
+    ThumbsUpL,
+    StopR,
+    StopL,
+    PeaceR,
+    PeaceL,
+    RockR,
+    RockL,
     NewGesture,
 
 }
