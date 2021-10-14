@@ -64,11 +64,41 @@ public class GestureDetector : MonoBehaviour
 
             if (hasRecognized && currentGesture.Equals(previousGesture) == false)
             {
-                text.text = currentGesture.gestureType.ToString();
+               // text.text = currentGesture.gestureType.ToString();
+                Debug.Log("Gesture found" + currentGesture.gestureType.ToString());
                 previousGesture = currentGesture;
                 NewGestureRecognizedEvent?.Invoke(currentGesture);
             }
+
         }
+
+
+        void OnNewGestureRecognized(Gesture gesture)
+        {
+            if (gesture.gestureType == GestureType.ThumbsUpR)
+            {
+                Debug.Log("Thumbs Up");
+
+                /* if (SelectedObject != null)
+                 {
+                     SelectedObject.MoveLeftRight = false;
+                     SelectedObject.MoveForwardBackward = false;
+                     DeselectObject(SelectedObject);
+                     SelectedObject = null;
+                 }
+             }
+             else if (gesture.gestureType == GestureType.ThumbsUpR)
+             {
+                 if (SelectedObject != null)
+                 {
+                     SelectedObject.MoveLeftRight = false;
+                     SelectedObject.MoveForwardBackward = false;
+                 }
+             }
+                */
+            }
+        }
+
     }
 
     void Initialize()
@@ -134,6 +164,10 @@ public class GestureDetector : MonoBehaviour
             }
         }
 
+        
+
         return currentGesture;
     }
+
+  
 }
