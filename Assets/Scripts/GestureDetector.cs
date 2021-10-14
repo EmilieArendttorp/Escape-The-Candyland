@@ -69,35 +69,11 @@ public class GestureDetector : MonoBehaviour
                 previousGesture = currentGesture;
                 NewGestureRecognizedEvent?.Invoke(currentGesture);
             }
-
+            
         }
+        
 
-
-        void OnNewGestureRecognized(Gesture gesture)
-        {
-            if (gesture.gestureType == GestureType.ThumbsUpR)
-            {
-                Debug.Log("Thumbs Up");
-
-                /* if (SelectedObject != null)
-                 {
-                     SelectedObject.MoveLeftRight = false;
-                     SelectedObject.MoveForwardBackward = false;
-                     DeselectObject(SelectedObject);
-                     SelectedObject = null;
-                 }
-             }
-             else if (gesture.gestureType == GestureType.ThumbsUpR)
-             {
-                 if (SelectedObject != null)
-                 {
-                     SelectedObject.MoveLeftRight = false;
-                     SelectedObject.MoveForwardBackward = false;
-                 }
-             }
-                */
-            }
-        }
+        
 
     }
 
