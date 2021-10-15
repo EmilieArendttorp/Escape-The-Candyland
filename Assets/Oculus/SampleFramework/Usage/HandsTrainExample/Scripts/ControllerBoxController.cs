@@ -16,43 +16,22 @@ namespace OculusSampleFramework
 {
 	public class ControllerBoxController : MonoBehaviour
 	{
-		[SerializeField] private TrainLocomotive _locomotive = null;
-		[SerializeField] private CowController _cowController = null;
+		//[SerializeField] private TrainLocomotive _locomotive = null;
+		//[SerializeField] private CowController _cowController = null;
 
 		private void Awake()
 		{
-			Assert.IsNotNull(_locomotive);
-			Assert.IsNotNull(_cowController);
+			//Assert.IsNotNull(_locomotive);
+		//	Assert.IsNotNull(_cowController);
 		}
-		public void StartStopStateChanged(InteractableStateArgs obj)
-		{
-			if (obj.NewInteractableState == InteractableState.ActionState)
-			{
-				_locomotive.StartStopStateChanged();
-			}
-		}
-
-		public void DecreaseSpeedStateChanged(InteractableStateArgs obj)
-		{
-			if (obj.NewInteractableState == InteractableState.ActionState)
-			{
-				_locomotive.DecreaseSpeedStateChanged();
-			}
-		}
-
-		public void IncreaseSpeedStateChanged(InteractableStateArgs obj)
-		{
-			if (obj.NewInteractableState == InteractableState.ActionState)
-			{
-				_locomotive.IncreaseSpeedStateChanged();
-			}
-		}
+		
 
 		public void SmokeButtonStateChanged(InteractableStateArgs obj)
 		{
 			if (obj.NewInteractableState == InteractableState.ActionState)
 			{
-				_locomotive.SmokeButtonStateChanged();
+				//_locomotive.SmokeButtonStateChanged();
+				Debug.Log("SmokeButton activated");
 			}
 		}
 
@@ -60,23 +39,17 @@ namespace OculusSampleFramework
 		{
 			if (obj.NewInteractableState == InteractableState.ActionState)
 			{
-				_locomotive.WhistleButtonStateChanged();
+				//_locomotive.WhistleButtonStateChanged();
+				Debug.Log("WhistleButton activated");
 			}
 		}
-
-		public void ReverseButtonStateChanged(InteractableStateArgs obj)
-		{
-			if (obj.NewInteractableState == InteractableState.ActionState)
-			{
-				_locomotive.ReverseButtonStateChanged();
-			}
-		}
-
+				
 		public void SwitchVisualization(InteractableStateArgs obj)
 		{
 			if (obj.NewInteractableState == InteractableState.ActionState)
 			{
 				HandsManager.Instance.SwitchVisualization();
+				Debug.Log("HandButton activated");
 			}
 		}
 
@@ -84,7 +57,8 @@ namespace OculusSampleFramework
 		{
 			if (obj.NewInteractableState == InteractableState.ActionState)
 			{
-				_cowController.GoMooCowGo();
+				//_cowController.GoMooCowGo();
+				Debug.Log("MooButton activated");
 			}
 		}
 	}
