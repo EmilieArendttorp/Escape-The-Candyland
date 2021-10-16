@@ -4,30 +4,43 @@ using UnityEngine;
 
 public class RandomFairySpawner : MonoBehaviour
 {
+    [SerializeField] List<GameObject> fairiesToSpawn = null;
+    [SerializeField] GameObject[] puzzleAnswerObjects = null;
+    [SerializeField] int[] spawnCases = { 3, 4, 5, 6 };
+
+    PuzzleAnswerManager puzzleAnswerManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        print(gameObject.name);
-        //gameObject.active = false;
+        puzzleAnswerManager = FindObjectOfType<PuzzleAnswerManager>();
 
-       
+        foreach (var fairy in fairiesToSpawn)
+        {
+            fairy.SetActive(false);
+        }
 
+        SpawnRandomNumberOfFairies();
     }
 
-    // Update is called once per frame
-    void Update()
+    [ContextMenu("Spawn Fairies")]
+    public void SpawnRandomNumberOfFairies()
     {
-        /*
-        if(fairy)
-        {
-           switch(fairy)
-            {
-                case 1:
-                    
-            }
-        }
-        */
+        var randomIndex = Random.Range(0, spawnCases.Length);
+        var numberOfFairiesToSpawn = spawnCases[randomIndex];
 
+        SetPuzzleAnswerObject(randomIndex);
+
+        for (int i = 0; i < numberOfFairiesToSpawn; i++)
+        {
+            fairiesToSpawn[i].SetActive(true);
+        }
+    }
+
+    void SetPuzzleAnswerObject(int index)
+    {
+        var puzzleAnswerObject = puzzleAnswerObjects[index];
+
+        puzzleAnswerManager.SetFairyObject(puzzleAnswerObject);
     }
 }
