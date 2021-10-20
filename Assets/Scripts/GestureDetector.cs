@@ -65,7 +65,7 @@ public class GestureDetector : MonoBehaviour
             if (hasRecognized && currentGesture.Equals(previousGesture) == false)
             {
                // text.text = currentGesture.gestureType.ToString();
-                Debug.Log("Gesture found" + currentGesture.gestureType.ToString());
+              //  Debug.Log("Gesture found" + currentGesture.gestureType.ToString());
                 previousGesture = currentGesture;
                 NewGestureRecognizedEvent?.Invoke(currentGesture);
             }

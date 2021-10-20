@@ -1,5 +1,4 @@
-/*
- * using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using OculusSampleFramework;
@@ -7,20 +6,20 @@ using OculusSampleFramework;
 [System.Serializable]
 public class HandTrackingGrabber : OVRGrabber
 {
-    private  Hand hand;
+    private OVRHand hand;
     public float pinchTreshold = 0.7f;
 
     protected override void Start()
     {
         base.Start();
-        hand = GetComponent.<Hand> ();
+        hand = GetComponent<OVRHand> ();
     }
 
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
-        CheckIndecPinch();
+        CheckIndexPinch();
     }
 
     void CheckIndexPinch()
@@ -28,10 +27,16 @@ public class HandTrackingGrabber : OVRGrabber
         float pinchStrength = GetComponent<OVRHand>().GetFingerPinchStrength(OVRHand.HandFinger.Index);
         bool isPinching = pinchStrength > pinchTreshold;
 
-        if (!m_grabbedObj && isPinching && m_granCandidates.Count > 0)
-            GrabBegin();
-        else if (m_grabbedObj && !isPinching)
+        if (!m_grabbedObj && isPinching && m_grabCandidates.Count > 0)
+        {
+           // GrabBegin();
+            Debug.Log("Is pinching");
+        }
+            
+        else if (m_grabbedObj && !isPinching)            
             GrabEnd();
+      
+            
     }
 }
-*/
+

@@ -16,50 +16,86 @@ namespace OculusSampleFramework
 {
 	public class ControllerBoxController : MonoBehaviour
 	{
-		//[SerializeField] private TrainLocomotive _locomotive = null;
-		//[SerializeField] private CowController _cowController = null;
-
+		[SerializeField] PuzzleButton puzzleButton1= null;
+		[SerializeField] PuzzleButton puzzleButton2 = null;
+		[SerializeField] PuzzleButton puzzleButton3 = null;
+		[SerializeField] PuzzleButton puzzleButton4 = null;
+		
+		
+		
 		private void Awake()
 		{
 			//Assert.IsNotNull(_locomotive);
-		//	Assert.IsNotNull(_cowController);
+			//	Assert.IsNotNull(_cowController);
+			
 		}
 		
 
-		public void SmokeButtonStateChanged(InteractableStateArgs obj)
-		{
-			if (obj.NewInteractableState == InteractableState.ActionState)
-			{
-				//_locomotive.SmokeButtonStateChanged();
-				Debug.Log("SmokeButton activated");
-			}
-		}
 
-		public void WhistleButtonStateChanged(InteractableStateArgs obj)
+		public void Button1(InteractableStateArgs obj)
 		{
 			if (obj.NewInteractableState == InteractableState.ActionState)
 			{
-				//_locomotive.WhistleButtonStateChanged();
-				Debug.Log("WhistleButton activated");
-			}
-		}
+				if(puzzleButton1.isAnswer == true)
+                {
+					Debug.Log("is Answer");
+				}
+				else
+                {
+					Debug.Log("Not Answer");
+				}
 				
-		public void SwitchVisualization(InteractableStateArgs obj)
-		{
-			if (obj.NewInteractableState == InteractableState.ActionState)
-			{
-				HandsManager.Instance.SwitchVisualization();
-				Debug.Log("HandButton activated");
 			}
 		}
 
-		public void GoMoo(InteractableStateArgs obj)
+		public void Button2(InteractableStateArgs obj)
 		{
 			if (obj.NewInteractableState == InteractableState.ActionState)
 			{
-				//_cowController.GoMooCowGo();
-				Debug.Log("MooButton activated");
+				if (puzzleButton2.isAnswer == true)
+				{
+					Debug.Log("is Answer");
+				}
+
+				else
+				{
+					Debug.Log("Not Answer");
+				}
 			}
 		}
+
+		public void Button3(InteractableStateArgs obj)
+		{
+			if (obj.NewInteractableState == InteractableState.ActionState)
+			{
+				if (puzzleButton3.isAnswer == true)
+				{
+					Debug.Log("is Answer");
+				}
+
+				else
+				{
+					Debug.Log("Not Answer");
+				}
+			}
+		}
+
+		public void Button4(InteractableStateArgs obj)
+		{
+			if (obj.NewInteractableState == InteractableState.ActionState)
+			{
+				if (puzzleButton4.isAnswer == true)
+				{
+					Debug.Log("is Answer");
+				}
+
+				else
+				{
+					Debug.Log("Not Answer");
+				}
+			}
+		}
+
+		
 	}
 }

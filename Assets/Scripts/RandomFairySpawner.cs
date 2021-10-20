@@ -29,7 +29,7 @@ public class RandomFairySpawner : MonoBehaviour
         var randomIndex = Random.Range(0, spawnCases.Length);
         var numberOfFairiesToSpawn = spawnCases[randomIndex];
 
-        SetPuzzleAnswerObject(randomIndex);
+       // SetPuzzleAnswerObject(randomIndex);
 
         for (int i = 0; i < numberOfFairiesToSpawn; i++)
         {
