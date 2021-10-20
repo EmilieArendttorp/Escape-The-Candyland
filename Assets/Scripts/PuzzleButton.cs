@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PuzzleButton : MonoBehaviour
 {
+    [SerializeField] MeshRenderer mesh = null;
     public bool isAnswer = false;
 
     Material material = null;
@@ -15,6 +16,7 @@ public class PuzzleButton : MonoBehaviour
 
     public void SetColor(Color color)
     {
+        mesh.material.color = color;
         material.color = color;
     }
 

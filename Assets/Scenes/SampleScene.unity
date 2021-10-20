@@ -1029,6 +1029,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 766177880}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &166947284 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23326175126061124, guid: ba81d7ad914d196478713b77b78ab653,
+    type: 3}
+  m_PrefabInstance: {fileID: 1061656233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &174639480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1086,6 +1092,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82ec713d07f8ca84f8e9deff3be21b2a, type: 3}
+--- !u!23 &176121061 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23627035495160218, guid: ba81d7ad914d196478713b77b78ab653,
+    type: 3}
+  m_PrefabInstance: {fileID: 1061656233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &179052650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1852,6 +1864,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4142636429755665287, guid: d71eb651c0112ca4aa4a63bcfeaea02b,
     type: 3}
   m_PrefabInstance: {fileID: 851897069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &268265746 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23385965368251248, guid: ba81d7ad914d196478713b77b78ab653,
+    type: 3}
+  m_PrefabInstance: {fileID: 1061656233}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &269161348
 PrefabInstance:
@@ -8207,6 +8225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0696eaf575b8d4292199a37acb0331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 1996739379}
   isAnswer: 0
 --- !u!114 &1061656239
 MonoBehaviour:
@@ -8220,6 +8239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0696eaf575b8d4292199a37acb0331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 166947284}
   isAnswer: 0
 --- !u!114 &1061656240
 MonoBehaviour:
@@ -8233,6 +8253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0696eaf575b8d4292199a37acb0331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 176121061}
   isAnswer: 0
 --- !u!114 &1061656241
 MonoBehaviour:
@@ -8246,6 +8267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0696eaf575b8d4292199a37acb0331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 268265746}
   isAnswer: 0
 --- !u!1 &1065973603
 GameObject:
@@ -34591,6 +34613,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a8bce15fd8b9fb4995d15fb40e8e7d8, type: 3}
+--- !u!23 &1996739379 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23205788515193214, guid: ba81d7ad914d196478713b77b78ab653,
+    type: 3}
+  m_PrefabInstance: {fileID: 1061656233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2003641625
 GameObject:
   m_ObjectHideFlags: 0

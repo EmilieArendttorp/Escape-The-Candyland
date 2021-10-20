@@ -29,7 +29,7 @@ public class HandTrackingGrabber : OVRGrabber
 
         if (!m_grabbedObj && isPinching && m_grabCandidates.Count > 0)
         {
-           // GrabBegin();
+            GrabBegin();
             Debug.Log("Is pinching");
         }
             
