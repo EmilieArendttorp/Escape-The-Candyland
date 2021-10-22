@@ -26,7 +26,7 @@ namespace OculusSampleFramework
 		[SerializeField] private MeshRenderer _meshRenderer = null;
 		[SerializeField] private MeshRenderer _glowRenderer = null;
 		[SerializeField] private ButtonController _buttonController = null;
-		[SerializeField] private Color _buttonContactColor = new Color(0.51f, 0.78f, 0.92f, 1.0f);
+		//[SerializeField] private Color _buttonContactColor = new Color(0.51f, 0.78f, 0.92f, 1.0f);
 		[SerializeField] private Color _buttonActionColor = new Color(0.24f, 0.72f, 0.98f, 1.0f);
 
 		[SerializeField] private AudioSource _audioSource = null;
@@ -126,21 +126,21 @@ namespace OculusSampleFramework
 			{
 				case InteractableState.ContactState:
 					StopResetLerping();
-					_buttonMaterial.SetColor(_materialColorId, _buttonContactColor);
+					//_buttonMaterial.SetColor(_materialColorId, _buttonContactColor);
 					_buttonInContactOrActionStates = true;
 					break;
 				case InteractableState.ProximityState:
-					_buttonMaterial.SetColor(_materialColorId, _buttonDefaultColor);
+					//_buttonMaterial.SetColor(_materialColorId, _buttonDefaultColor);
 					LerpToOldPosition();
 					break;
 				case InteractableState.ActionState:
 					StopResetLerping();
-					_buttonMaterial.SetColor(_materialColorId, _buttonActionColor);
+					//_buttonMaterial.SetColor(_materialColorId, _buttonActionColor);
 					PlaySound(_actionSoundEffect);
 					_buttonInContactOrActionStates = true;
 					break;
 				default:
-					_buttonMaterial.SetColor(_materialColorId, _buttonDefaultColor);
+					//_buttonMaterial.SetColor(_materialColorId, _buttonDefaultColor);
 					LerpToOldPosition();
 					break;
 			}

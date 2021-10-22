@@ -20,7 +20,7 @@ public class ButtonPuzzleManager : MonoBehaviour
         PickPuzzleCase();
     }
 
-    void PickPuzzleCase()
+    public void PickPuzzleCase()
     {
         var randomIndex = Random.Range(0, puzzleCases.Length);
         var puzzleCase = puzzleCases[randomIndex];
