@@ -20,7 +20,6 @@ public class HandTrackingGrabber : OVRGrabber
     {
         base.Update();
         CheckIndexPinch();
-        CheckIndexPinchWorking();
     }
 
     void CheckIndexPinchWorking()
@@ -43,7 +42,7 @@ public class HandTrackingGrabber : OVRGrabber
 
     void CheckIndexPinch()
     {
-        float pinchStrength = GetComponent<OVRHand>().GetFingerPinchStrength(OVRHand.HandFinger.Index);
+        float pinchStrength = hand.GetFingerPinchStrength(OVRHand.HandFinger.Index);
         bool isPinching = pinchStrength > pinchTreshold;
 
         if (!m_grabbedObj && isPinching && m_grabCandidates.Count > 0)
@@ -51,11 +50,8 @@ public class HandTrackingGrabber : OVRGrabber
             GrabBegin();
             Debug.Log("Is pinching");
         }
-            
         else if (m_grabbedObj && !isPinching)            
             GrabEnd();
-      
-            
     }
 }
 

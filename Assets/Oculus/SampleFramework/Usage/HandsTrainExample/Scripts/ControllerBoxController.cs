@@ -23,11 +23,13 @@ namespace OculusSampleFramework
 
 		
 		int correctCounter;
-		
+
+		ButtonPuzzleManager buttonPuzzleManager = null;
+
 
 		private void Awake()
 		{
-			FindObjectOfType<ButtonPuzzleManager>().PickPuzzleCase();
+			buttonPuzzleManager = FindObjectOfType<ButtonPuzzleManager>();
 
 			//Assert.IsNotNull(_locomotive);
 			//	Assert.IsNotNull(_cowController);
@@ -36,16 +38,15 @@ namespace OculusSampleFramework
 
         private void Start()
         {
-			correctCounter = 0;
-        }
+			correctCounter = 0;			
+		}
 
         private void Update()
-        {
-            if (correctCounter == 3)
+        {		
+			if (correctCounter == 3)
             {
 				ThreeCorrectButtons();
-
-			}
+			}            
         }
 
 
@@ -57,7 +58,7 @@ namespace OculusSampleFramework
                 {
 					correctCounter++;
 					Debug.Log("is Answer" + correctCounter);
-					FindObjectOfType<ButtonPuzzleManager>().PickPuzzleCase();
+					buttonPuzzleManager.PickPuzzleCase();
 						if (correctCounter == 3)
 						{
 							ThreeCorrectButtons();
@@ -82,7 +83,7 @@ namespace OculusSampleFramework
 				{					
 					correctCounter++;
 					Debug.Log("is Answer" + correctCounter);
-					FindObjectOfType<ButtonPuzzleManager>().PickPuzzleCase();
+					buttonPuzzleManager.PickPuzzleCase();
 					if (correctCounter == 3)
 					{
 						ThreeCorrectButtons();
@@ -106,7 +107,7 @@ namespace OculusSampleFramework
 				{					
 					correctCounter++;
 					Debug.Log("is Answer" + correctCounter);
-					FindObjectOfType<ButtonPuzzleManager>().PickPuzzleCase();
+					buttonPuzzleManager.PickPuzzleCase();
 					if (correctCounter == 3)
 					{
 						ThreeCorrectButtons();
@@ -130,7 +131,7 @@ namespace OculusSampleFramework
 				{
 					correctCounter++;
 					Debug.Log("is Answer" + correctCounter);
-					FindObjectOfType<ButtonPuzzleManager>().PickPuzzleCase();
+					buttonPuzzleManager.PickPuzzleCase();
 					if (correctCounter == 3)
 					{
 						ThreeCorrectButtons();
