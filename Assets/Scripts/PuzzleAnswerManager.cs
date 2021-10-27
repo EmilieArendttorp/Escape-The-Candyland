@@ -21,6 +21,7 @@ public class PuzzleAnswerManager : MonoBehaviour
         iceObject = answer;
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         if (CheckIfCorrectFairyAnswer(collision.gameObject))
@@ -38,15 +39,16 @@ public class PuzzleAnswerManager : MonoBehaviour
         if (CheckIfCorrectIceAnswer(collision.gameObject))
         {
             //Write code here that should occur when answer is CORRECT.
+            Debug.Log("Correct");
             return;
         }
-
+        Debug.Log("wrong");
         //Write code here that should occur when answer is WRONG.
     }
 
     bool CheckIfCorrectFairyAnswer(GameObject objectToTest)
     {
-        return objectToTest == fairyObject ? true : false;
+        return objectToTest == fairyObject ? true : false;        
     }
 
     bool CheckIfCorrectGingerAnswer(GameObject objectToTest)
