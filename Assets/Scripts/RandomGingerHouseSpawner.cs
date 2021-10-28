@@ -35,7 +35,7 @@ public class RandomGingerHouseSpawner : MonoBehaviour
         {
             gingerhousesToSpawn[i].SetActive(true);
         }
-        Debug.Log(numberOfGingerhousesToSpawn);
+        Debug.Log("Number of Gingerhouses" + numberOfGingerhousesToSpawn);
     }
 
     void SetPuzzleAnswerObject(int index)

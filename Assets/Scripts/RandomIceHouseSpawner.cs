@@ -35,7 +35,7 @@ public class RandomIceHouseSpawner : MonoBehaviour
         {
             icehousesToSpawn[i].SetActive(true);
         }
-        Debug.Log(numberOfIcehousesToSpawn);
+        Debug.Log("Number of Ice houses" + numberOfIcehousesToSpawn);
     }
 
     void SetPuzzleAnswerObject(int index)

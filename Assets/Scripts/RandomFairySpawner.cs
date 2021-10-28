@@ -35,6 +35,8 @@ public class RandomFairySpawner : MonoBehaviour
         {
             fairiesToSpawn[i].SetActive(true);
         }
+
+        Debug.Log("Number of Fairies" + numberOfFairiesToSpawn);
     }
 
     void SetPuzzleAnswerObject(int index)
@@ -42,5 +44,6 @@ public class RandomFairySpawner : MonoBehaviour
         var puzzleAnswerObject = puzzleAnswerObjects[index];
 
         puzzleAnswerManager.SetFairyObject(puzzleAnswerObject);
+        Debug.Log("Fairy answer " + puzzleAnswerObject);
     }
 }

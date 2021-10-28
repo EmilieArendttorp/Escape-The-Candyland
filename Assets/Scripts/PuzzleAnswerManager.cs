@@ -6,6 +6,9 @@ public class PuzzleAnswerManager : MonoBehaviour
 {
     GameObject fairyObject = null, gingerObject = null, iceObject = null;
 
+    int correctCounter = 0;
+
+
     public void SetFairyObject(GameObject answer)
     {
         fairyObject = answer;
@@ -27,23 +30,52 @@ public class PuzzleAnswerManager : MonoBehaviour
         if (CheckIfCorrectFairyAnswer(collision.gameObject))
         {
             //Write code here that should occur when answer is CORRECT.
+            //Green light
+            correctCounter++;
+            Debug.Log("Correct Obejct 1");
+
+            if (correctCounter == 3)
+            {
+                ThreeCorrectObjects();
+            }
+
             return;
         }
 
         if (CheckIfCorrectGingerAnswer(collision.gameObject))
         {
             //Write code here that should occur when answer is CORRECT.
+            correctCounter++;
+            Debug.Log("Correct Object 2");
+            if (correctCounter == 3)
+            {
+                ThreeCorrectObjects();
+            }
+
             return;
         }
 
         if (CheckIfCorrectIceAnswer(collision.gameObject))
         {
             //Write code here that should occur when answer is CORRECT.
-            Debug.Log("Correct");
+            correctCounter++;
+            Debug.Log("Correct Object 3");
+
+            if (correctCounter == 3)
+            {
+                ThreeCorrectObjects();
+            }
+
             return;
         }
-        Debug.Log("wrong");
+        Debug.Log("Wrong Object");
         //Write code here that should occur when answer is WRONG.
+        //Red lamp light up
+    }
+
+    void ThreeCorrectObjects()
+    {
+
     }
 
     bool CheckIfCorrectFairyAnswer(GameObject objectToTest)
