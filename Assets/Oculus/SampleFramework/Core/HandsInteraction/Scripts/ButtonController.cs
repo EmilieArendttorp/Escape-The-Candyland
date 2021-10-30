@@ -201,6 +201,12 @@ namespace OculusSampleFramework
 			}
 		}
 
+		[ContextMenu("Test Button")]
+		public void Test()
+        {
+			InteractableStateChanged?.Invoke(new InteractableStateArgs(this, null, InteractableState.ActionState, InteractableState.ContactState, new ColliderZoneArgs(ActionCollider, Time.frameCount, null, InteractionType.Enter)));
+        }
+
 		private InteractableState GetUpcomingStateNearField(InteractableState oldState,
 			InteractableCollisionDepth newCollisionDepth, bool toolIsInActionZone,
 			bool toolIsInContactZone, bool toolIsInProximity,

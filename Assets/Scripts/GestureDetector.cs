@@ -71,10 +71,6 @@ public class GestureDetector : MonoBehaviour
             }
             
         }
-        
-
-        
-
     }
 
     void Initialize()

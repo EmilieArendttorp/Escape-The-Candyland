@@ -8,13 +8,10 @@ public class RandomIconSpawner : MonoBehaviour
     [SerializeField] GameObject[] puzzleAnswerObjects = null;
     //[SerializeField] int[] spawnCases = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-    PuzzleAnswerManager puzzleAnswerManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
-         puzzleAnswerManager = FindObjectOfType<PuzzleAnswerManager>();
-
          foreach (var icon in iconToSpawn)
          {
              icon.SetActive(false);

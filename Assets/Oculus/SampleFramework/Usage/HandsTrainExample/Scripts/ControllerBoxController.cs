@@ -21,34 +21,16 @@ namespace OculusSampleFramework
 		[SerializeField] PuzzleButton puzzleButton3 = null;
 		[SerializeField] PuzzleButton puzzleButton4 = null;
 
-		
-		int correctCounter;
+		int correctCounter = 0;
 
 		ButtonPuzzleManager buttonPuzzleManager = null;
-
+		GesturePuzzleManager gesturePuzzleManager = null;
 
 		private void Awake()
 		{
 			buttonPuzzleManager = FindObjectOfType<ButtonPuzzleManager>();
-
-			//Assert.IsNotNull(_locomotive);
-			//	Assert.IsNotNull(_cowController);
-			
+			gesturePuzzleManager = FindObjectOfType<GesturePuzzleManager>();
 		}
-
-        private void Start()
-        {
-			correctCounter = 0;			
-		}
-
-        private void Update()
-        {		
-			if (correctCounter == 3)
-            {
-				ThreeCorrectButtons();
-			}            
-        }
-
 
         public void Button1(InteractableStateArgs obj)
 		{
@@ -59,17 +41,18 @@ namespace OculusSampleFramework
 					correctCounter++;
 					Debug.Log("is Answer" + correctCounter);
 					buttonPuzzleManager.PickPuzzleCase();
-						if (correctCounter == 3)
-						{
-							ThreeCorrectButtons();
 
-						}
+					if (correctCounter == 3)
+					{
+						OnPuzzleCompletion();
+
+					}
 				}
 				else
                 {
 					Debug.Log("Not Answer");
 					correctCounter = 0;
-					WrongButton();
+					buttonPuzzleManager.PickPuzzleCase();
 				}
 				
 			}
@@ -84,9 +67,10 @@ namespace OculusSampleFramework
 					correctCounter++;
 					Debug.Log("is Answer" + correctCounter);
 					buttonPuzzleManager.PickPuzzleCase();
+
 					if (correctCounter == 3)
 					{
-						ThreeCorrectButtons();
+						OnPuzzleCompletion();
 
 					}
 				}
@@ -94,7 +78,7 @@ namespace OculusSampleFramework
 				{
 					Debug.Log("Not Answer");
 					correctCounter = 0;
-					WrongButton();
+					buttonPuzzleManager.PickPuzzleCase();
 				}
 			}
 		}
@@ -108,9 +92,10 @@ namespace OculusSampleFramework
 					correctCounter++;
 					Debug.Log("is Answer" + correctCounter);
 					buttonPuzzleManager.PickPuzzleCase();
+
 					if (correctCounter == 3)
 					{
-						ThreeCorrectButtons();
+						OnPuzzleCompletion();
 
 					}
 				}
@@ -118,7 +103,7 @@ namespace OculusSampleFramework
 				{
 					Debug.Log("Not Answer");
 					correctCounter = 0;
-					WrongButton();
+					buttonPuzzleManager.PickPuzzleCase();
 				}
 			}
 		}
@@ -132,9 +117,10 @@ namespace OculusSampleFramework
 					correctCounter++;
 					Debug.Log("is Answer" + correctCounter);
 					buttonPuzzleManager.PickPuzzleCase();
+
 					if (correctCounter == 3)
 					{
-						ThreeCorrectButtons();
+						OnPuzzleCompletion();
 
 					}
 				}
@@ -142,23 +128,15 @@ namespace OculusSampleFramework
 				{
 					Debug.Log("Not Answer");
 					correctCounter = 0;
-					WrongButton();
+					buttonPuzzleManager.PickPuzzleCase();
 				}
 			}
 		}
 
-		void WrongButton()
+        public void OnPuzzleCompletion()
         {
-			FindObjectOfType<ButtonPuzzleManager>().PickPuzzleCase();
+			transform.root.gameObject.SetActive(false);
+			gesturePuzzleManager.ColoredButtonsCompletion();
 		}
-
-		void ThreeCorrectButtons()
-        {
-			Debug.Log("Funciton is called" + correctCounter);
-			transform.parent.gameObject.SetActive(false);
-			//Deactivate buttons and controller box
-			//Activate box with a sign on it - Which need a specific gesture to solve it
-        }
-		
-	}
+    }
 }
