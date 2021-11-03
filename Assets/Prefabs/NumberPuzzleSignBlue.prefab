@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8342387137148846751}
   - component: {fileID: 8342387137148846744}
-  - component: {fileID: 318112609220507088}
+  - component: {fileID: 4042629512760366701}
   m_Layer: 0
-  m_Name: NumberPuzzleSign
+  m_Name: NumberPuzzleSignBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &318112609220507088
+--- !u!114 &4042629512760366701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

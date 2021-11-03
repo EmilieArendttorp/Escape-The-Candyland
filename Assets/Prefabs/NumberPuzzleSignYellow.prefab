@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8342387137148846751}
   - component: {fileID: 8342387137148846744}
-  - component: {fileID: 318112609220507088}
+  - component: {fileID: -162793588165525696}
   m_Layer: 0
-  m_Name: NumberPuzzleSign
+  m_Name: NumberPuzzleSignYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,9 +25,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8342387137148846745}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -2.35, y: 5.896, z: -4.871}
-  m_LocalScale: {x: 0.028970014, y: 0.02897, z: 0.028970014}
+  m_LocalRotation: {x: 0.6983859, y: 0.110711925, z: -0.1107119, w: 0.6983859}
+  m_LocalPosition: {x: 0.70615965, y: 0.021994352, z: 2.3103247}
+  m_LocalScale: {x: 0.024899999, y: 0.024899999, z: 0.024899999}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &318112609220507088
+--- !u!114 &-162793588165525696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
