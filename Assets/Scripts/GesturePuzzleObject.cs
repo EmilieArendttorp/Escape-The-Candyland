@@ -5,25 +5,23 @@ using TMPro;
 
 public class GesturePuzzleObject : MonoBehaviour
 {
-    [SerializeField] GestureType gestureToPerform = GestureType.NewGesture;
+    //[SerializeField] GestureType gestureToPerform = GestureType.NewGesture;
     [SerializeField] TextMeshPro text = null;
-    [SerializeField] SpriteRenderer spriteRenderer = null;
     [SerializeField] int lockCombinationNumber = 0;
 
     Gesture gesture;
+    RandomIconSpawner randomIconSpawner = null;
+    GesturePuzzleIcon gesturePuzzleIcon = null;
+
+    static int activeGestureBoxes = 0;
 
     private void Start()
     {
-        gesture = new Gesture { fingerData = null, gestureType = gestureToPerform };
+        randomIconSpawner = GetComponent<RandomIconSpawner>();
 
         if(text == null)
         {
             text = GetComponentInChildren<TextMeshPro>();
-        }
-
-        if (spriteRenderer == null)
-        {
-            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         text.text = lockCombinationNumber.ToString();
@@ -42,10 +40,22 @@ public class GesturePuzzleObject : MonoBehaviour
 
     public void OnGestureRecognized(Gesture recognizedGesture)
     {
+        if(gesturePuzzleIcon == null)
+        {
+            gesturePuzzleIcon = randomIconSpawner.SpawnedIcon.GetComponent<GesturePuzzleIcon>();
+            gesture = new Gesture { fingerData = null, gestureType = gesturePuzzleIcon.gestureToPerform };
+        }
+
         if(recognizedGesture.gestureType == gesture.gestureType)
         {
-            spriteRenderer.enabled = false;
+            randomIconSpawner.SpawnedIcon.GetComponent<SpriteRenderer>().enabled = false;
             text.gameObject.SetActive(true);
+            activeGestureBoxes++;
+
+            if(activeGestureBoxes == 3)
+            {
+                FindObjectOfType<GestureDetector>().enabled = true;
+            }
         }
     }
 

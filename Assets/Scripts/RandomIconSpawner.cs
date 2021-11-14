@@ -8,7 +8,7 @@ public class RandomIconSpawner : MonoBehaviour
     [SerializeField] GameObject[] puzzleAnswerObjects = null;
     //[SerializeField] int[] spawnCases = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-
+    public GameObject SpawnedIcon { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +27,10 @@ public class RandomIconSpawner : MonoBehaviour
     public void SpawnIcon()
     {
         var randomIndex = Random.Range(0, iconToSpawn.Count);
-        var spawnIcons = iconToSpawn[randomIndex];                 
+        SpawnedIcon = iconToSpawn[randomIndex];                 
         
-        Debug.Log(spawnIcons + "Name");
-        spawnIcons.SetActive(true);
+        Debug.Log(SpawnedIcon + "Name");
+        SpawnedIcon.SetActive(true);
     }
 
     void SetPuzzleAnswerObject(int index)
@@ -40,6 +40,7 @@ public class RandomIconSpawner : MonoBehaviour
        // SignPuzzleManager.SetSignObject1(puzzleAnswerObject);
     }
 
+    
 }
 
      

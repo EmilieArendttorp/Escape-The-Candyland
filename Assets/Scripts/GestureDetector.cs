@@ -6,15 +6,14 @@ using System;
 
 public enum GestureType
 {
-    RightHandIndexPoint,
-    ThumbsUpR,
-    ThumbsUpL,
-    StopR,
-    StopL,
-    PeaceR,
-    PeaceL,
+    LittleFingerR,
+    SurfR,
+    TwoFingersMiddleR,
     RockR,
-    RockL,
+    PeaceR,
+    FingerGunR,
+    SpockR,
+    WeirdR,    
     NewGesture,
 
 }
@@ -29,6 +28,7 @@ public struct Gesture
 [System.Serializable]
 public class GestureDetector : MonoBehaviour
 {
+    [SerializeField] bool detectGestures = true;
     [SerializeField] OVRSkeleton skeleton = null;
     [SerializeField] List<Gesture> gestures = new List<Gesture>();
     [SerializeField] float threshold = 0.1f;
@@ -42,6 +42,14 @@ public class GestureDetector : MonoBehaviour
     bool isInitialized = false;
 
     public static Action<Gesture> NewGestureRecognizedEvent;
+
+    private void Awake()
+    {
+        if(detectGestures == false)
+        {
+            enabled = false;
+        }
+    }
 
     IEnumerator Start()
     {
@@ -65,7 +73,7 @@ public class GestureDetector : MonoBehaviour
             if (hasRecognized && currentGesture.Equals(previousGesture) == false)
             {
                // text.text = currentGesture.gestureType.ToString();
-              //  Debug.Log("Gesture found" + currentGesture.gestureType.ToString());
+                Debug.Log("Gesture found" + currentGesture.gestureType.ToString());
                 previousGesture = currentGesture;
                 NewGestureRecognizedEvent?.Invoke(currentGesture);
             }

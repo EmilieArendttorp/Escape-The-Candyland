@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class PuzzleAnswerManager : MonoBehaviour
 {
+    [SerializeField] Light greenLight = null;
+    [SerializeField] Light redLight = null;
     GameObject fairyObject = null, gingerObject = null, iceObject = null;
 
     static int correctCounter = 0;
+
+    private void Start()
+    {
+        greenLight.enabled = false;
+        redLight.enabled = false;
+    }
 
     public void SetFairyObject(GameObject answer)
     {
@@ -26,11 +34,12 @@ public class PuzzleAnswerManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (CheckIfCorrectFairyAnswer(collision.gameObject))
+        if (IsCorrectFairyAnswer(collision.gameObject))
         {
             //Write code here that should occur when answer is CORRECT.
             //Green light
             correctCounter++;
+            greenLight.enabled = true;
             Debug.Log("Correct Object: " + collision.gameObject.name);
 
             if (correctCounter == 3)
@@ -45,6 +54,7 @@ public class PuzzleAnswerManager : MonoBehaviour
         {
             //Write code here that should occur when answer is CORRECT.
             correctCounter++;
+            greenLight.enabled = true;
             Debug.Log("Correct Object: " + collision.gameObject.name);
             if (correctCounter == 3)
             {
@@ -58,6 +68,7 @@ public class PuzzleAnswerManager : MonoBehaviour
         {
             //Write code here that should occur when answer is CORRECT.
             correctCounter++;
+            greenLight.enabled = true;
             Debug.Log("Correct Object: " + collision.gameObject.name);
 
             if (correctCounter == 3)
@@ -67,9 +78,17 @@ public class PuzzleAnswerManager : MonoBehaviour
 
             return;
         }
+
+        redLight.enabled = true;
         Debug.Log("Wrong Object");
         //Write code here that should occur when answer is WRONG.
         //Red lamp light up
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (greenLight.enabled == true) greenLight.enabled = false;
+        if (redLight.enabled == true) redLight.enabled = false;
     }
 
     void OnPuzzleCompletion()
@@ -78,7 +97,7 @@ public class PuzzleAnswerManager : MonoBehaviour
         FindObjectOfType<GesturePuzzleManager>().ObjectPlacementCompletion();
     }
 
-    bool CheckIfCorrectFairyAnswer(GameObject objectToTest)
+    bool IsCorrectFairyAnswer(GameObject objectToTest)
     {
         if(objectToTest == fairyObject)
         {
