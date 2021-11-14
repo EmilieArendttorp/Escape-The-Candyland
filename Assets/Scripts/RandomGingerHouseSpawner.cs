@@ -6,7 +6,7 @@ public class RandomGingerHouseSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> gingerhousesToSpawn = null;
     [SerializeField] GameObject[] puzzleAnswerObjects = null;
-    [SerializeField] PuzzleAnswerManager puzzleAnswerManager = null;
+    [SerializeField] ObjectPuzzleManager objectPuzzleManager = null;
     [SerializeField] int[] spawnCases = { 3, 4, 5, 6, 7, 8 };
     //[SerializeField] GameObject puzzleAnswerTest = null;
 
@@ -14,9 +14,9 @@ public class RandomGingerHouseSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (puzzleAnswerManager == null)
+        if (objectPuzzleManager == null)
         {
-            Debug.LogWarning(gameObject.name + " IS MISSING A PUZZLE MANAGER!");
+            FindObjectOfType<ObjectPuzzleManager>();
         }
 
         foreach (var gingerhouse in gingerhousesToSpawn)
@@ -49,7 +49,7 @@ public class RandomGingerHouseSpawner : MonoBehaviour
         //puzzleAnswerObject.transform.position = puzzleAnswerManager.transform.position + new Vector3(0f, 1f, 0f);
         //puzzleAnswerObject.GetComponent<Rigidbody>().useGravity = false;
 
-        puzzleAnswerManager.SetGingerObject(puzzleAnswerObject);
+        objectPuzzleManager.SetGingerObject(puzzleAnswerObject);
     }
 }
 

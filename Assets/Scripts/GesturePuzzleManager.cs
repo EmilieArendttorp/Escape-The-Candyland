@@ -8,6 +8,8 @@ public class GesturePuzzleManager : MonoBehaviour
     [SerializeField] GesturePuzzleObject objectPlacementPuzzleObject = null;
     [SerializeField] GesturePuzzleObject numberedButtonsPuzzleObject = null;
 
+    int activeGestureBoxes = 0;
+
     private void Start()
     {
         if(coloredButtonsPuzzleObject && objectPlacementPuzzleObject && numberedButtonsPuzzleObject)
@@ -21,15 +23,36 @@ public class GesturePuzzleManager : MonoBehaviour
     public void ColoredButtonsCompletion()
     {
         coloredButtonsPuzzleObject.gameObject.SetActive(true);
+
+        activeGestureBoxes++;
+
+        if (activeGestureBoxes == 3)
+        {
+            FindObjectOfType<GestureDetector>().enabled = true;
+        }
     }
 
     public void ObjectPlacementCompletion()
     {
         objectPlacementPuzzleObject.gameObject.SetActive(true);
+
+        activeGestureBoxes++;
+
+        if (activeGestureBoxes == 3)
+        {
+            FindObjectOfType<GestureDetector>().enabled = true;
+        }
     }
 
     public void NumberedButtonsCompletion()
     {
         numberedButtonsPuzzleObject.gameObject.SetActive(true);
+
+        activeGestureBoxes++;
+
+        if (activeGestureBoxes == 3)
+        {
+            FindObjectOfType<GestureDetector>().enabled = true;
+        }
     }
 }

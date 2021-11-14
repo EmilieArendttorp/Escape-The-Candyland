@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GesturePuzzleObject : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class GesturePuzzleObject : MonoBehaviour
     RandomIconSpawner randomIconSpawner = null;
     GesturePuzzleIcon gesturePuzzleIcon = null;
 
-    static int activeGestureBoxes = 0;
 
     private void Start()
     {
@@ -50,21 +50,17 @@ public class GesturePuzzleObject : MonoBehaviour
         {
             randomIconSpawner.SpawnedIcon.GetComponent<SpriteRenderer>().enabled = false;
             text.gameObject.SetActive(true);
-            activeGestureBoxes++;
-
-            if(activeGestureBoxes == 3)
-            {
-                FindObjectOfType<GestureDetector>().enabled = true;
-            }
         }
     }
 
     [ContextMenu("Test")]
     public void Test()
     {
-        var gesture = new Gesture();
-        gesture.fingerData = null;
-        gesture.gestureType = GestureType.NewGesture;
+        if (gesturePuzzleIcon == null)
+        {
+            gesturePuzzleIcon = randomIconSpawner.SpawnedIcon.GetComponent<GesturePuzzleIcon>();
+            gesture = new Gesture { fingerData = null, gestureType = gesturePuzzleIcon.gestureToPerform };
+        }
         OnGestureRecognized(gesture);
     }
 }

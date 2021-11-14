@@ -1,34 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PuzzleAnswerManager : MonoBehaviour
 {
     [SerializeField] Light greenLight = null;
     [SerializeField] Light redLight = null;
-    GameObject fairyObject = null, gingerObject = null, iceObject = null;
+    [SerializeField] ObjectPuzzleManager objectPuzzleManager = null;
 
     static int correctCounter = 0;
+
+    private void Awake()
+    {
+        if (objectPuzzleManager == null)
+        {
+            objectPuzzleManager = FindObjectOfType<ObjectPuzzleManager>();
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.activeSceneChanged += OnSceneChange;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= OnSceneChange;
+    }
+
+    void OnSceneChange(Scene scene, Scene scene1)
+    {
+        correctCounter = 0;
+    }
 
     private void Start()
     {
         greenLight.enabled = false;
         redLight.enabled = false;
-    }
-
-    public void SetFairyObject(GameObject answer)
-    {
-        fairyObject = answer;
-    }
-
-    public void SetGingerObject(GameObject answer)
-    {
-        gingerObject = answer;
-    }
-
-    public void SetIceObject(GameObject answer)
-    {
-        iceObject = answer;
     }
 
 
@@ -99,9 +108,9 @@ public class PuzzleAnswerManager : MonoBehaviour
 
     bool IsCorrectFairyAnswer(GameObject objectToTest)
     {
-        if(objectToTest == fairyObject)
+        if(objectToTest == objectPuzzleManager.FairyObject)
         {
-            fairyObject = null;
+            objectPuzzleManager.DeReferenceFairyObject();
             return true;
         }
 
@@ -110,9 +119,9 @@ public class PuzzleAnswerManager : MonoBehaviour
 
     bool CheckIfCorrectGingerAnswer(GameObject objectToTest)
     {
-        if (objectToTest == gingerObject)
+        if (objectToTest == objectPuzzleManager.GingerObject)
         {
-            gingerObject = null;
+            objectPuzzleManager.DeReferenceGingerObject();
             return true;
         }
 
@@ -121,9 +130,9 @@ public class PuzzleAnswerManager : MonoBehaviour
 
     bool CheckIfCorrectIceAnswer(GameObject objectToTest)
     {
-        if (objectToTest == iceObject)
+        if (objectToTest == objectPuzzleManager.IceObject)
         {
-            iceObject = null;
+            objectPuzzleManager.DeReferenceIceObject();
             return true;
         }
 

@@ -43,16 +43,13 @@ public class GestureDetector : MonoBehaviour
 
     public static Action<Gesture> NewGestureRecognizedEvent;
 
-    private void Awake()
-    {
-        if(detectGestures == false)
-        {
-            enabled = false;
-        }
-    }
-
     IEnumerator Start()
     {
+        if (detectGestures == false)
+        {
+            this.enabled = false;
+        }
+
         yield return new WaitUntil(() => skeleton.IsInitialized == true);
 
         Initialize();

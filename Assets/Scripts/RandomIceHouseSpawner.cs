@@ -7,15 +7,15 @@ public class RandomIceHouseSpawner : MonoBehaviour
     [SerializeField] List<GameObject> icehousesToSpawn = null;
     [SerializeField] GameObject[] puzzleAnswerObjects = null;
     [SerializeField] int[] spawnCases = { 3, 4, 5, 6, 7, 8 };
-    [SerializeField] PuzzleAnswerManager puzzleAnswerManager = null;
+    [SerializeField] ObjectPuzzleManager objectPuzzleManager = null;
     //[SerializeField] GameObject puzzleAnswerTest = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (puzzleAnswerManager == null)
+        if (objectPuzzleManager == null)
         {
-            Debug.LogWarning(gameObject.name + " IS MISSING A PUZZLE MANAGER!");
+            FindObjectOfType<ObjectPuzzleManager>();
         }
 
         foreach (var icehouse in icehousesToSpawn)
@@ -48,6 +48,6 @@ public class RandomIceHouseSpawner : MonoBehaviour
         //puzzleAnswerObject.transform.position = puzzleAnswerManager.transform.position + new Vector3(0f, 1f, 0f);
         //puzzleAnswerObject.GetComponent<Rigidbody>().useGravity = false;
 
-        puzzleAnswerManager.SetIceObject(puzzleAnswerObject);
+        objectPuzzleManager.SetIceObject(puzzleAnswerObject);
     }
 }

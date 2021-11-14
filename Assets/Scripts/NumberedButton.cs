@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NumberedButton : MonoBehaviour
 {
@@ -15,6 +16,21 @@ public class NumberedButton : MonoBehaviour
     private void Start()
     {
         numberText.text = number.ToString();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.activeSceneChanged += OnSceneChange;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= OnSceneChange;
+    }
+
+    void OnSceneChange(Scene scene, Scene scene1)
+    {
+        correctCounter = 0;
     }
 
     //Unity Event reaction.
