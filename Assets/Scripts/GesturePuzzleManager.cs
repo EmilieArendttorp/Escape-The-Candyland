@@ -22,37 +22,46 @@ public class GesturePuzzleManager : MonoBehaviour
 
     public void ColoredButtonsCompletion()
     {
-        coloredButtonsPuzzleObject.gameObject.SetActive(true);
-
-        activeGestureBoxes++;
-
-        if (activeGestureBoxes == 3)
+        if (coloredButtonsPuzzleObject.isActiveAndEnabled == false)
         {
-            FindObjectOfType<GestureDetector>().enabled = true;
+            coloredButtonsPuzzleObject.gameObject.SetActive(true);
+
+            activeGestureBoxes++;
+
+            if (activeGestureBoxes == 3)
+            {
+                FindObjectOfType<GestureDetector>().enabled = true;
+            } 
         }
     }
 
     public void ObjectPlacementCompletion()
     {
-        objectPlacementPuzzleObject.gameObject.SetActive(true);
-
-        activeGestureBoxes++;
-
-        if (activeGestureBoxes == 3)
+        if (objectPlacementPuzzleObject.isActiveAndEnabled == false)
         {
-            FindObjectOfType<GestureDetector>().enabled = true;
+            objectPlacementPuzzleObject.gameObject.SetActive(true);
+
+            activeGestureBoxes++;
+
+            if (activeGestureBoxes == 3)
+            {
+                FindObjectOfType<GestureDetector>().enabled = true;
+            } 
         }
     }
 
     public void NumberedButtonsCompletion()
     {
-        numberedButtonsPuzzleObject.gameObject.SetActive(true);
-
-        activeGestureBoxes++;
-
-        if (activeGestureBoxes == 3)
+        if (numberedButtonsPuzzleObject.isActiveAndEnabled == false)
         {
-            FindObjectOfType<GestureDetector>().enabled = true;
+            numberedButtonsPuzzleObject.gameObject.SetActive(true);
+
+            activeGestureBoxes++;
+
+            if (activeGestureBoxes == 3)
+            {
+                FindObjectOfType<GestureDetector>().enabled = true;
+            } 
         }
     }
 }

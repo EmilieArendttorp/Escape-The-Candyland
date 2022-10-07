@@ -44,7 +44,11 @@ public class GesturePuzzleObject : MonoBehaviour
         {
             gesturePuzzleIcon = randomIconSpawner.SpawnedIcon.GetComponent<GesturePuzzleIcon>();
             gesture = new Gesture { fingerData = null, gestureType = gesturePuzzleIcon.gestureToPerform };
+            print("Icon was null");
         }
+
+        print("Gesture after" + gesture.gestureType.ToString());
+        print("recognizxedgesture" + recognizedGesture.gestureType.ToString());
 
         if(recognizedGesture.gestureType == gesture.gestureType)
         {
@@ -56,11 +60,8 @@ public class GesturePuzzleObject : MonoBehaviour
     [ContextMenu("Test")]
     public void Test()
     {
-        if (gesturePuzzleIcon == null)
-        {
-            gesturePuzzleIcon = randomIconSpawner.SpawnedIcon.GetComponent<GesturePuzzleIcon>();
-            gesture = new Gesture { fingerData = null, gestureType = gesturePuzzleIcon.gestureToPerform };
-        }
+        //var gesture = new Gesture { fingerData = null, gestureType = randomIconSpawner.SpawnedIcon.GetComponent<GesturePuzzleIcon>().gestureToPerform };
+        var gesture = new Gesture { fingerData = null, gestureType = GestureType.NewGesture };
         OnGestureRecognized(gesture);
     }
 }
